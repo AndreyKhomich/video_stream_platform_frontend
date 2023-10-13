@@ -3,7 +3,7 @@ import subscriber from "../images/Jack.png"
 
 function SidebarSubscriber() {
   return (
-    <a href=""
+    <a href="#"
     ><img src={subscriber} alt="" />
     <p>Jack Nikolson</p>
   </a>

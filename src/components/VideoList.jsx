@@ -1,19 +1,51 @@
-import React from "react";
-import thumbnail from "../images/thumbnail1.png";
+import React, {useRef} from "react";
+import { Link } from "react-router-dom";
 import VideoInfo from "./VideoInfo";
 
 function VideoList({ videos }) {
+  const videoRefs = useRef({});
+
+  const handleMouseEnter = (videoId) => {
+    if (videoRefs.current[videoId]) {
+      videoRefs.current[videoId].play();
+    }
+  };
+
+  const handleMouseLeave = (videoId) => {
+    if (videoRefs.current[videoId]) {
+      videoRefs.current[videoId].pause();
+    }
+  };
+
   return (
     <div className="list-container">
       {videos.map((video) => (
-        <div key={video.id} className="vid-list">
-          <video className="video" src={video.url}
-          controls 
-          // poster={video.thumbnail_url}
-          loop
-          preload="auto"></video>
-          <VideoInfo videoName={video.title} videoViews={video.view_count}/>
-        </div>
+        <Link to={`/video/${video.id}`} key={video.id}>
+          <div className="vid-list">
+            <video
+              className="video"
+              src={`${video.url}#t=,20`} 
+              controls={false}
+              // poster={video.thumbnailUrl}
+              loop
+              muted
+              preload="auto"
+              disablePictureInPicture
+              controlsList="nodownload"
+              onMouseEnter={() => handleMouseEnter(video.id)}
+              onMouseLeave={() => handleMouseLeave(video.id)}
+              ref={(el) => {
+                videoRefs.current[video.id] = el;
+              }}
+            >
+            </video>
+            <VideoInfo
+              videoName={video.title}
+              videoViews={video.view_count}
+              channelName={video.channel.name}
+            />
+          </div>
+        </Link>
       ))}
     </div>
   );

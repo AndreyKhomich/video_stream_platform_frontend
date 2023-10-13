@@ -1,0 +1,104 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'poppins', san-serif;
+}
+
+.verification-form-container {
+background: #fff;
+height: 380px;
+width: 433px;
+padding: 20px;
+border-radius: 8px;
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+position: absolute;
+top: 25%;
+left: 37%;
+}
+
+.overlay {
+background: rgba(0, 0, 0, 0.5); 
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+z-index: 1; 
+}
+
+.logo {
+display: block;
+margin: 0 auto 20px; 
+max-width: 150px; 
+}
+
+.verification-form-container h2 {
+color: #5a5a5a;
+font-size: 25px;
+margin-bottom: 0px;
+margin-top: 50px;
+text-align: center;
+
+}
+
+.verification-form-container label {
+color: #5a5a5a;
+font-size: 14px;
+display: block;
+margin-bottom: 5px;
+}
+
+.verification-form-container .resend {
+  background: rgb(209, 46, 46);
+  color: #fff;
+  margin-top: 25px;
+  margin-left: 100px;
+  border: none;
+  padding: 8px 30px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.3s ease;
+}
+
+.verification-form-container button:hover {
+background: #cc0000;
+}
+
+
+
+.center {
+  color: #5a5a5a;
+  margin-top: 40px;
+  text-align: center;
+}
+
+.verification-status {
+  color: #5a5a5a;
+  font-size: 20px;
+  text-align: center;
+  margin-top: 35px;
+}
+
+.ok {
+  display: block;
+  filter: opacity(0.4) drop-shadow(0 0 0 rgb(255, 2, 2));
+  margin: 0 auto 20px;
+  margin-top: 30px; 
+  max-width: 150px; 
+}
+
+@keyframes fadein{
+0%{
+  top:-100%;
+}
+100%{
+  top: 0%
+}
+}
+
+

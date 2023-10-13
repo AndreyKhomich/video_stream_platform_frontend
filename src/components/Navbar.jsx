@@ -1,18 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import "../css/navbar.css";
-import Login from "./Login";
 import NavbarLeft from './NavbarLeft';
 import NavbarMiddle from './NavbarMiddle';
 import NavbarRight from './NavbarRight';
 
 
-function NavBar() {
+function NavBar({ isLoggedIn, toggleSidebar, toggleContainerSize }) {
 
   return (
     <nav className="flex-div">
-     <NavbarLeft/>
+     <NavbarLeft toggleSidebar={toggleSidebar} toggleContainerSize={toggleContainerSize} />
      <NavbarMiddle/>
-     <NavbarRight />
+     <NavbarRight isLoggedIn={isLoggedIn} />
     </nav>
   );
 }

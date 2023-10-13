@@ -70,7 +70,18 @@ nav{
     outline:0;
     border-radius: 4px;
     cursor: pointer;    
-  }
+}
+
+.logout {
+    background-color: #c2350a;
+    color: #fff;
+    margin-left: 20px;
+    padding: 8px 30px;
+    border:0;
+    outline:0;
+    border-radius: 4px;
+    cursor: pointer;    
+}
 
 .nav-left .logo{
     width: 130px;

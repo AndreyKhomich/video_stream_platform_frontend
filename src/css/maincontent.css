@@ -1,10 +1,18 @@
 .container {
     background: #f9f9f9;
+    padding-left: 2%;
+    padding-right: 2%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.logged-in-container {
+   background: #f9f9f9;
     padding-left: 17%;
     padding-right: 2%;
     padding-top: 20px;
     padding-bottom: 20px;
-} 
+}
 
 .large-container {
     padding-left: 7%;
@@ -57,17 +65,6 @@
     margin-bottom: 5px;
     display: block;
     margin-bottom: 5px;
-}
-
-.show {
-    display: block;
-    transition: 800ms;
-    opacity: 1;
-}
-
-.show.active {
-    transform: translateY(100px) scale(0) rotateY(180deg);
-    opacity: 0;
 }
 
 @media (max-width: 900px){

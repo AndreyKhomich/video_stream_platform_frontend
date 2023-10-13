@@ -1,13 +1,13 @@
 import React from "react";
 import subscriber from "../images/Jack.png";
 
-function VideoInfo({videoName, videoViews}) {
+function VideoInfo({videoName, videoViews, channelName}) {
   return (
     <div className="flex-div">
-      <img src={subscriber} alt="" />
+      <img src={subscriber} alt="subscriber" />
       <div className="vid-info">
-        <a href="play-video.html">{videoName}</a>
-        <p>My channel</p>
+        <a href="#">{videoName}</a>
+        <p >{channelName}</p>
         <p>{videoViews} views &bull; 2 days</p>
       </div>
     </div>

@@ -2,9 +2,10 @@ import React from "react";
 import "../css/sidebar.css";
 import SidebarCategory from './SidebarCategory';
 
-function Sidebar() {
+function Sidebar({ isSidebarHidden }) {
+
   return (
-    <div className="sidebar">
+    <div className={`sidebar ${isSidebarHidden ? 'small-sidebar' : ''}`}>
       <SidebarCategory/>
     </div>
   );
