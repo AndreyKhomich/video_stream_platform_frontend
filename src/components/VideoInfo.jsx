@@ -1,17 +1,28 @@
 import React from "react";
 import subscriber from "../images/Jack.png";
+import "../css/videopage.css";
 
-function VideoInfo({videoName, videoViews, channelName}) {
-  return (
-    <div className="flex-div">
-      <img src={subscriber} alt="subscriber" />
+function VideoInfo({ videoViews, isVideoPage, video }) {
+  if (isVideoPage) {
+    return (
       <div className="vid-info">
-        <a href="#">{videoName}</a>
-        <p >{channelName}</p>
-        <p>{videoViews} views &bull; 2 days</p>
+        <p className="vid-title">{video.title}</p>
+        <p>{video.channel.name}</p>
+
       </div>
-    </div>
-  );
+    );
+  } else {
+    return (
+      <div className="flex-div">
+        <img src={subscriber} alt="subscriber" />
+        <div className="vid-info-main-page">
+          <p className="main-vid-title">{video.title}</p>
+          <p>{video.channel.name}</p>
+          {videoViews && <p>{video.view_count} views &bull; 2 days</p>}
+        </div>
+      </div>
+    );
+  }
 }
 
 export default VideoInfo;

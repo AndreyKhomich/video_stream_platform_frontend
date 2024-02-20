@@ -16,7 +16,7 @@ function EmailVerification() {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get(`http://localhost:8000/auth/confirmation/${verificationToken}`);
+      const response = await axios.get(`http://localhost:8010/auth/confirmation/${verificationToken}`);
 
       if (response.data.message === "Email is confirmed") {
         setVerificationStatus("Email has been verified!");
@@ -34,7 +34,7 @@ function EmailVerification() {
 
   const handleResendVerification = async () => {
     try {
-      const response = await axios.get(`http://localhost:8000/auth/resend-verification/${verificationToken}`);
+      const response = await axios.get(`http://localhost:8010/auth/resend-verification/${verificationToken}`);
 
       if (response.data.message === "Confirmation email was resend") {
         setVerificationStatus("Verificatio email was resend!");

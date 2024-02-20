@@ -1,0 +1,90 @@
+.upload-container {
+    background: #f9f9f9;
+    padding-left: 2%;
+    padding-right: 2%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    height: auto; /* Adjust height as needed */
+    width: 100%; /* Adjust width as needed */
+}
+
+.upload-container header {
+    background: #fff;
+    color: #000;
+    padding: 20px;
+    text-align: center;
+}
+
+.upload-container main {
+    padding: 20px;
+}
+
+.upload-container .form-group {
+    margin-bottom: 20px;   
+}
+
+.upload-container label {
+    color: #5a5a5a;
+    font-size: 14px;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.upload-container input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    font-size: 14px;
+}
+
+.upload-container button {
+    background: rgb(209, 46, 46);
+    color: #fff;
+    border: none;
+    padding: 8px 30px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.3s ease;
+}
+
+.upload-container button:hover {
+    background: #cc0000;
+}
+
+.upload-container footer {
+    background: #fff;
+    color: #000;
+    padding: 20px;
+    text-align: center;
+}
+
+.video-description {
+    border: 0;
+    outline: 0;
+    border-bottom: 1px solid #ccc;
+    width: 100%;
+    padding-top: 10px;
+    resize: none;
+    height:auto;
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: #000;
+    background: #f9f9f9;
+}
+
+.video-title {
+    background: #f9f9f9;
+}
+
+@keyframes fadein {
+0% {
+    top: -100%;
+}
+100% {
+    top: 0%;
+}
+}

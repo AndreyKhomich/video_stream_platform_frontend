@@ -1,52 +1,72 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import avatar from "../images/Jack.png";
 import axios from "axios";
-import 'react-toastify/dist/ReactToastify.css';
-import useErrorToast from '../hooks/useErrorToast';
 
-  
+
 function Publisher({ video, isLoggedIn, jwtToken }) {
-  console.log(jwtToken)
-  console.log(video.channel.id)
-
-  const [isSubscribed, setSubscribe] = useState(false);
-
+  const [isSubscribed, setIsSubscribed] = useState(false);
   const subscribersText =
-    video.channel.subscription_count === 1 ? "Subscriber" : "Subscribers";
+  video.channel.subscription_count === 1 ? "Subscriber" : "Subscribers";
 
-  const subscriptionText = isSubscribed ? 'Unsubscribed' : 'Subscribe';
+  const subscriptionText = isSubscribed ? 'Subscribed' : 'Subscribe';
+  const buttonClassName = isSubscribed ? 'active' : 'button';
 
-  const handleSubscribe = async () => {
+
+  const fetchSubscriptionStatus = async () => {
     try {
-        const response = await axios.post(
-          `http://127.0.0.1:8000/subscription/${video.channel.id}`,
-          
-          {
-            headers: {
-              'Content-Type': 'application/json',
-              Authorization: `Bearer ${jwtToken}`
-            },
-          }
-        );
+      const response = await axios.get(`http://localhost:8010/subscription/${video.channel.id}`, {
+        headers: {
+          Authorization: `Bearer ${jwtToken}`
+        }});
 
-        if (response.status === 200) {
-          setSubscribe(!isSubscribed);        
-        }
-    
+      if (response.status === 200) {
+        setIsSubscribed(response.data.is_subscribed);
+      }
     } catch (error) {
-      console.error('Subscription failed:', error);
+
     }
-  }
+  };
+
+  useEffect(() => {
+    if (isLoggedIn) {
+      fetchSubscriptionStatus();
+    }
+
+  }, [video.channel.id, jwtToken, isLoggedIn]);
+  
+
+  const handleSubscription = async () => {
+ 
+    try {
+      if (isSubscribed) {
+        await axios.delete(`http://localhost:8010/subscription/${video.channel.id}`, {
+          headers: {
+            Authorization: `Bearer ${jwtToken}`,
+          },
+        });
+
+      } else {
+        await axios.post(`http://localhost:8010/subscription/${video.channel.id}`, {}, {
+          headers: {
+            Authorization: `Bearer ${jwtToken}`,
+          }
+        });
+      }
+      setIsSubscribed(!isSubscribed);
+    } catch (error) {
+      console.log(error)
+    }
+  };
 
   return (
     <div className="publisher">
       <img src={avatar} alt="avatar" />
       <div>
-        <p>Some text</p>
+        <p>{video.title}</p>
         <span>{video.channel.subscription_count} {subscribersText}</span>
       </div>
       {isLoggedIn && (
-        <button type="button" onClick={handleSubscribe}>
+        <button type="button" onClick={handleSubscription} className={buttonClassName}>
           {subscriptionText}
         </button>
       )}

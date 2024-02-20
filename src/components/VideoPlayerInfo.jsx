@@ -1,20 +1,20 @@
 import React from "react";
-import like from "../images/like.png";
-import dislike from "../images/dislike.png";
-import share from "../images/share.png";
+import VideoLike from './VideoLike';
+import VideoDislike from './VideoDislike';
+import ShareLink from "./ShareLink";
 
+function VideoPlayerInfo({ video, isLoggedIn, jwtToken, userId }) {
 
-function VideoPlayerInfo({ video }) {
   return (
     <div className="play-video-info">
-            <p>{video.view_count} Views &bull; 2days ago</p>
+      <p>{video.view_count} Views &bull; 2 days ago</p>
 
-            <div>
-              <a href="#"><img src={like} alt="like" />{video.like_count}</a>
-              <a href="#"><img src={dislike} alt="dislike" />{video.dislike_count}</a>
-              <a href="#"><img src={share} alt="share" />Share</a>
-            </div>
-          </div>
+      <div className="play-vide-info-ditail">
+        <VideoLike video={video} isLoggedIn={isLoggedIn} jwtToken={jwtToken} userId={userId}/>
+        <VideoDislike video={video} isLoggedIn={isLoggedIn} jwtToken={jwtToken} userId={userId}/>
+        <ShareLink video={video}/>
+      </div>
+    </div>
   );
 }
 

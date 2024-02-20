@@ -32,7 +32,7 @@ function Login({ toggleLoginForm, isLoginFormVisible, submitButtonText }) {
 
 
     try {
-      const response = await axios.post("http://127.0.0.1:8000/auth/jwt/login", {
+      const response = await axios.post("http://127.0.0.1:8010/auth/jwt/login", {
         password: formData.password,
         username: formData.username,
       },
@@ -44,7 +44,7 @@ function Login({ toggleLoginForm, isLoginFormVisible, submitButtonText }) {
       }
       
       );
-      console.log(response.data);
+      
       Cookies.set('jwtToken', response.data.access_token, {
         expires: 1,
         sameSite: 'None', 

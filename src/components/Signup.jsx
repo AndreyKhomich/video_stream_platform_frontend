@@ -44,7 +44,7 @@ function SignUp({ toggleSignupForm, isSignupFormVisible, setSignupFormVisible })
   
 
     try {
-      const response = await axios.post("http://127.0.0.1:8000/auth/register", {
+      const response = await axios.post("http://127.0.0.1:8010/auth/register", {
         email: formData.email,
         password: formData.password,
       });
@@ -58,7 +58,6 @@ function SignUp({ toggleSignupForm, isSignupFormVisible, setSignupFormVisible })
       } else if (error.response && error.response.data.detail.code === "REGISTER_INVALID_PASSWORD") {
         showErrorToast("Your password must meet the following criteria: It should be a minimum of 8 characters in length and include a combination of letters, numbers, and either '!' or '?'.");
       } else if (error.response && error.response.data.detail.message === "value is not a valid email address: The part after the @-sign is not valid. It should have a period.") {
-        // console.log(error.response.data.detail);
         showErrorToast("Please enter valid email");
       } else {
         console.error(error); 
