@@ -1,36 +1,74 @@
-// Main component
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import NavbarLeft from "./navbar/NavbarLeft";
 import upload from "../images/upload.png";
 import UploadVideoSidebar from "./UploadVideoSidebar";
 import VideoDetailsTable from "./VideoDetailsTable";
+import UploadVideoPopup from "./UploadVideoPopup";
+import Pagination from "./Pagination";
+import "../css/uploadvideo.css";
+import "../css/uploadvideopopup.css";
+import Axios from 'axios';
 
-function UploadVideo({ isSidebarHidden, toggleSidebar, toggleContainerSize }) {
+function UploadVideo({ isSidebarHidden, toggleSidebar, isContainerLarge, isLoggedIn, toggleContainerSize, toggleUploadForm, isUploadFormVisible, userId, jwtToken }) {
   const [showVideoDetails, setShowVideoDetails] = useState(false);
   const [videoDetails, setVideoDetails] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
+  const location = useLocation();
+  console.log("Hello!");
+  const pageSize = 4;
 
-  const handleVideosClick = () => {
-    // Here you can fetch video details from your backend or mock data
-    // For demonstration, I'm using mock data
-    const mockVideoDetails = [
-      { video:"https://res.cloudinary.com/dn49hj23p/image/upload/v1706193669/Thumbnails/j4mfhwfk9bmvrsagijiz.jpg", title: "Video 1", description: "Escape to the majestic allure of Mountain Sky. Let your gaze ascend to the towering peaks that reach towards an expansive sky. Marvel at the ever-changing canvas above, where clouds dance and sunlight paints hues of blue and gold. Experience the serenity that envelops the mountains as they touch the heavens. Join us on a visual odyssey, where the grandeur of the mountains meets the vast expanse of the sky, creating a harmonious symphony of awe-inspiring beauty.", comments: 10, views: 100, likes: 50, dislikes: 5 },
-      { video:"https://res.cloudinary.com/dn49hj23p/image/upload/v1706192279/Thumbnails/pxkvcdptnomr5rv6mj3e.jpg", title: "Video 2", description: "Escape to the majestic allure of Mountain Sky. Let your gaze ascend to the towering peaks that reach towards an expansive sky. Marvel at the ever-changing canvas above, where clouds dance and sunlight paints hues of blue and gold. Experience the serenity that envelops the mountains as they touch the heavens. Join us on a visual odyssey, where the grandeur of the mountains meets the vast expanse of the sky, creating a harmonious symphony of awe-inspiring beauty.", comments: 5, views: 200, likes: 30, dislikes: 3 },
-      // Add more video details as needed
-    ];
-    setVideoDetails(mockVideoDetails);
-    setShowVideoDetails(true);
+ 
+  const handleVideosClick = async (page, size) => {
+    try {
+      if (userId && size && page) {
+        const response = await Axios.get(`http://127.0.0.1:8010/video/videos/${userId}?page=${page}&size=${size}`);
+        
+        setVideoDetails(response.data.items); 
+        setTotalPages(response.data.pages);
+        setShowVideoDetails(true);
+      }
+    } catch (error) {
+      if (error.response && error.response.status === 404) {
+        setShowVideoDetails(false);
+      }
+    }
+  };
+  
+
+  useEffect(() => {
+    handleVideosClick(currentPage, pageSize);
+  }, [userId]);
+
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
+    handleVideosClick(page, pageSize);
   };
 
+
   return (
-    <>
-      <nav className="flex-div">
-        <NavbarLeft toggleSidebar={toggleSidebar} toggleContainerSize={toggleContainerSize}/>
+    <> 
+       <nav className="flex-div">
+        <NavbarLeft toggleSidebar={toggleSidebar} toggleContainerSize={toggleContainerSize} isUploadFormVisible={isUploadFormVisible} toggleUploadForm={toggleUploadForm}/>
         <div className="nav-right flex-div">
-          <img src={upload} alt="upload" />
+          <img src={upload} alt="upload" onClick={toggleUploadForm} />
         </div>
       </nav>
       <UploadVideoSidebar isSidebarHidden={isSidebarHidden} handleVideosClick={handleVideosClick}/>
-      {showVideoDetails && <VideoDetailsTable videoDetails={videoDetails} />}
+      <div className={`upload-video-container ${isContainerLarge ? 'large-container' : ''} container ${isLoggedIn ? 'logged-in-container' : ''} `}>
+      {showVideoDetails ? (
+        <>
+          <VideoDetailsTable videoDetails={videoDetails} />
+          <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={handlePageChange} />
+        </>
+      ) : (
+        <VideoDetailsTable videoDetails={videoDetails} />
+      )}
+      </div>
+      {<UploadVideoPopup userId={userId} jwtToken={jwtToken} toggleUploadForm={toggleUploadForm} isUploadFormVisible={isUploadFormVisible}/>}
+      {isUploadFormVisible && <div className="overlay"></div>}
+    
     </>
   );
 }

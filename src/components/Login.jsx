@@ -39,7 +39,7 @@ function Login({ toggleLoginForm, isLoginFormVisible, submitButtonText }) {
       {
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded',
-          'accept': 'application/json'
+          'Accept': 'application/json'
         },
       }
       

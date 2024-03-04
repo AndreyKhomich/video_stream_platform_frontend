@@ -19,6 +19,9 @@ function App() {
 
   const [isSidebarHidden, setSidebarHidden] = useState(false);
   const [isContainerLarge, setContainerLarge] = useState(false);
+  const [isUploadFormVisible, setUploadFormVisible] = useState(true);
+
+
 
   const toggleContainerSize = () => {
     setContainerLarge(!isContainerLarge);
@@ -26,6 +29,10 @@ function App() {
 
   const toggleSidebar = () => {
     setSidebarHidden(!isSidebarHidden);
+  };
+
+  const toggleUploadForm = () => {
+    setUploadFormVisible(!isUploadFormVisible);
   };
 
   useEffect(() => {
@@ -46,31 +53,39 @@ function App() {
       <Router>
         <Routes>
           <Route path="/signup" element={<Signup />} />
-          <Route path="/" element={<MainContent 
+          <Route path="/" element={<MainContent
             isLoggedIn={isLoggedIn}
-            isSidebarHidden={isSidebarHidden} 
-            isContainerLarge={isContainerLarge} 
-            toggleContainerSize={toggleContainerSize} 
-            toggleSidebar={toggleSidebar} /> }
+            isSidebarHidden={isSidebarHidden}
+            isContainerLarge={isContainerLarge}
+            toggleContainerSize={toggleContainerSize}
+            toggleSidebar={toggleSidebar} />}
+            toggleUploadForm={toggleUploadForm}
+            isUploadFormVisible={isUploadFormVisible}
           />
           <Route
             path="/auth/confirmation/:verificationToken"
-            element={<EmailVerification />} 
-            />
-          <Route path="/video/:video_id" element={<VideoPage 
-            isLoggedIn={isLoggedIn} 
-            jwtToken={jwtToken}
-            isSidebarHidden={isSidebarHidden} 
-            isContainerLarge={isContainerLarge} 
-            toggleContainerSize={toggleContainerSize} 
-            toggleSidebar={toggleSidebar} 
-            userId={userId} />} 
+            element={<EmailVerification />}
           />
-          <Route path="/upload-video" element={<UploadVideo 
-            isSidebarHidden={isSidebarHidden} 
-            isContainerLarge={isContainerLarge} 
-            toggleContainerSize={toggleContainerSize} 
-            toggleSidebar={toggleSidebar} />} />
+          <Route path="/video/:video_id" element={<VideoPage
+            isLoggedIn={isLoggedIn}
+            jwtToken={jwtToken}
+            isSidebarHidden={isSidebarHidden}
+            isContainerLarge={isContainerLarge}
+            toggleContainerSize={toggleContainerSize}
+            toggleSidebar={toggleSidebar}
+            userId={userId} />}
+          />
+          <Route path="/upload-video" element={<UploadVideo
+            isLoggedIn={isLoggedIn}
+            isSidebarHidden={isSidebarHidden}
+            isContainerLarge={isContainerLarge}
+            toggleContainerSize={toggleContainerSize}
+            toggleSidebar={toggleSidebar}
+            toggleUploadForm={toggleUploadForm}
+            isUploadFormVisible={isUploadFormVisible}
+            userId={userId} 
+            jwtToken={jwtToken}/>} />
+            <Route path="/upload-video-popup" element={<UploadVideoPopup/>} />
         </Routes>
       </Router>
       <ToastContainer autoClose={5000} />

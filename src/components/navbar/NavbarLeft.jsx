@@ -7,7 +7,7 @@ function NavbarLeft({ toggleSidebar, toggleContainerSize }) {
   return (
     <div className="nav-left flex-div">
     <img src={menu} className="menu-icon" alt="menu" onClick={() => { toggleSidebar(); toggleContainerSize();}} />
-    <img src={logo} className="logo" alt="logo" />
+    <img src={logo} className="logo" alt="logo"/>
   </div>
   );
 }

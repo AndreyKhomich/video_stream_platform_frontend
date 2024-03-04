@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Link } from 'react-router-dom';
 import Login from "../Login";
 import Signup from "../Signup";
 import Cookies from 'js-cookie';
@@ -10,19 +9,13 @@ import userphoto from "../../images/Jack.png";
 import upload from "../../images/upload.png";
 
 
-function NavbarRight({ isLoggedIn }) {
+function NavbarRight({ isLoggedIn, toggleUploadForm, isUploadFormVisible }) {
   const [isLoginFormVisible, setLoginFormVisible] = useState(false);
   const [isSignupFormVisible, setSignupFormVisible] = useState(false);
 
 
   const toggleLoginForm = () => {
     setLoginFormVisible(!isLoginFormVisible);
-
-    if (isLoginFormVisible) {
-      document.body.classList.remove('active-popup');
-    } else {
-      document.body.classList.add('active-popup');
-    }
   };
 
   const toggleSignupForm = () => {
@@ -39,14 +32,17 @@ function NavbarRight({ isLoggedIn }) {
     navigate(0);
   };
 
+
+  const handleUploadClick = () => {
+    navigate('/upload-video', { state: {test: true }});
+  };
+
   return (
     <>
       {isLoggedIn ? (
         <>
           <div className="nav-right flex-div">
-          <Link to="/upload-video">
-          <img src={upload} alt="upload" />
-        </Link>
+          <img src={upload} alt="upload" onClick={handleUploadClick} />
           <img src={more} alt="more" />
           <img src={notification} alt="notification" />
           <img src={userphoto} className="user-icon" alt="userphoto" />
@@ -65,6 +61,7 @@ function NavbarRight({ isLoggedIn }) {
           {isSignupFormVisible && <div className="overlay"></div>}
         </>
       )}
+      
     </>
   );
 }

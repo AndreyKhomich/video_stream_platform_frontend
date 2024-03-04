@@ -68,7 +68,6 @@ function Comments({ video, isLoggedIn, jwtToken, userId }) {
               console.error("Unexpected response status:", response.status);
           }
       } catch (error) {
-          console.error("Error fetching comments:", error);
           if (error.response && error.response.data.detail === "The video doesn't have comments") {
               setComments([]);
           } else {

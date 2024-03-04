@@ -13,7 +13,6 @@ function VideoDetailsTable({ videoDetails }) {
     };
 
   return (
-    <div className='upload-video'>
       <div className="video-details-table">
         <table className="table custom-table">
           <thead>
@@ -41,21 +40,19 @@ function VideoDetailsTable({ videoDetails }) {
                     <div className="control-indicator"></div>
                   </label>
                 </td>
-                <td><img src={video.video}/></td>
-                <td>{video.title}</td>
+                <td><img src={video.thumbnail_url}/></td>
+                <td className='title'>{video.title}</td>
                 <td>{video.comments}</td>
                 <td>{video.views}</td>
                 <td>{video.likes}</td>
                 <td>{video.dislikes}</td>
-                <tr>
+
                     <td></td>
-                </tr>
               </tr>  
             ))}
           </tbody>
         </table>
       </div> 
-    </div> 
   );
 }
 

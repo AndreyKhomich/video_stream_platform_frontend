@@ -5,6 +5,7 @@ import SidebarPopulaVideo from "./SidebarPopularVideo";
 import SidebarMessage from "./SidebarMessage";
 import SidebarTopAuthor from "./SidebarTopAuthor";
 import SidebarSubscribersList from "./SidebarSubscribersList";
+import SidebarSettings from "./SidebarSettings";
 
 function SidebarCategory() {
   return (
@@ -14,6 +15,8 @@ function SidebarCategory() {
         <SidebarPopulaVideo/>
         <SidebarMessage/>
         <SidebarTopAuthor/>
+        <SidebarSettings />
+
         <hr />
         <SidebarSubscribersList/>
     </div>

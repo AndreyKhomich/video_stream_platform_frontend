@@ -1,6 +1,7 @@
 // UploadVideoSidebar.js
 import React, { useState } from "react";
 import "../css/sidebar.css";
+import SidebarHome from "./sidebar/SidebarHome";
 import UploadSidebarVideos from "./UploadSidebarVideos";
 import UploadSidebarSettings from "./UploadSidebarSettings";
 import UploadSidebarComments from "./UploadSidebarComments";
@@ -18,9 +19,9 @@ function UploadVideoSidebar({ isSidebarHidden, handleVideosClick }) {
         </div>
       </div>
       <div className="shortcut-links">
+        <SidebarHome/>
         <UploadSidebarVideos onClick={handleVideosClick} />
         <UploadSidebarSettings />
-        <UploadSidebarComments />
         <UploadSidebarAnalytics />
       </div>
     </div>

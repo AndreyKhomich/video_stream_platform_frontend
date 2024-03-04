@@ -25,7 +25,7 @@
 }
 
 .custom-table tbody td {
-    color: #777;
+    color: #000;
     font-weight: 400;
     padding-bottom: 20px;
     padding-top: 20px;
@@ -46,6 +46,14 @@
 
 .custom-table tbody tr td {
     border-bottom: 1px solid #ccc;
+}
+
+.custom-table tbody tr .title {
+    max-width: 60px; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+    border-bottom: 1px solid #ccc;
+    white-space: nowrap;
 }
 
 .control {
@@ -74,8 +82,8 @@
 }
 
 .control input[type="checkbox"]:checked ~ .control-indicator {
-    background-color: #007bff;
-    border-color: #007bff;
+    background-color: #b35f5f;
+    border-color: #b35f5f;
 }
 
 .control input[type="checkbox"]:checked ~ .control-indicator:after {

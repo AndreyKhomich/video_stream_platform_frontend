@@ -5,13 +5,13 @@ import NavbarMiddle from './NavbarMiddle';
 import NavbarRight from './NavbarRight';
 
 
-function NavBar({ isLoggedIn, toggleSidebar, toggleContainerSize }) {
+function NavBar({ isLoggedIn, toggleSidebar, toggleContainerSize, toggleUploadForm, isUploadFormVisible }) {
 
   return (
     <nav className="flex-div">
      <NavbarLeft toggleSidebar={toggleSidebar} toggleContainerSize={toggleContainerSize} />
      <NavbarMiddle/>
-     <NavbarRight isLoggedIn={isLoggedIn} />
+     <NavbarRight isLoggedIn={isLoggedIn}  toggleUploadForm={toggleUploadForm} isUploadFormVisible={isUploadFormVisible} />
     </nav>
   );
 }
