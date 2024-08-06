@@ -26,22 +26,13 @@ function SignUp({ toggleSignupForm, isSignupFormVisible, setSignupFormVisible })
   const handleRegistration = async (e) => {
     e.preventDefault();
 
-
-  
+    
   const showSuccessMessage = () => {
     toast.success('Sign-up Successful! Please check your email for a confirmation link.', {
       position: toast.POSITION.TOP_CENTER,
       className: 'toast-message',
-    },
-    {
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
-        'accept': 'application/json'
-      },
     });
   };
-
-  
 
     try {
       const response = await axios.post("http://127.0.0.1:8010/auth/register", {

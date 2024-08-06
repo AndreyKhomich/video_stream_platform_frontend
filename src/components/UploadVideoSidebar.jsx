@@ -1,27 +1,18 @@
-// UploadVideoSidebar.js
-import React, { useState } from "react";
+import React from "react";
 import "../css/sidebar.css";
 import SidebarHome from "./sidebar/SidebarHome";
 import UploadSidebarVideos from "./UploadSidebarVideos";
 import UploadSidebarSettings from "./UploadSidebarSettings";
-import UploadSidebarComments from "./UploadSidebarComments";
 import UploadSidebarAnalytics from "./UploadSidebarAnalytics";
-import user from "../images/Jack.png";
 
-function UploadVideoSidebar({ isSidebarHidden, handleVideosClick }) {
+
+function UploadVideoSidebar({ isSidebarHidden, handleVideosClick, userId }) {
   return (
     <div className={`sidebar ${isSidebarHidden ? 'small-sidebar' : ''}`}>
-      <div className='user-info'>
-        <div className='user-photo'>
-          <img src={user} alt="user" />
-          <div className='channel-name'>Channel Name</div>
-          <div className='user-name'>Andrei Khomich</div>
-        </div>
-      </div>
       <div className="shortcut-links">
         <SidebarHome/>
         <UploadSidebarVideos onClick={handleVideosClick} />
-        <UploadSidebarSettings />
+        <UploadSidebarSettings userId={userId} />
         <UploadSidebarAnalytics />
       </div>
     </div>

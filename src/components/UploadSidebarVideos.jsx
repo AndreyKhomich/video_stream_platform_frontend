@@ -3,9 +3,9 @@ import videos from "../images/videos.png"
 
 function UploadSidebarVideos({ onClick }) {
   return (
-         <a href="#" onClick={onClick}
+         <a href="/uploaded-videos" onClick={onClick}
           ><img src={videos} alt="videos" />
-          <p>Videos</p>
+          <p>Content</p>
         </a>
   );
 }

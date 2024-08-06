@@ -26,6 +26,11 @@ function EmailVerification() {
       if (error.response && error.response.data.detail === "Verification token expired") {
         showErrorToast("Your verification token has been expired! Please click button Resend Verification Email for the confirmation.");
         setVerificationStatus("Email is not verified!");
+      }
+      if (error.response && error.response.data.detail === "User already verified") {
+        showErrorToast('Your email already verified. Please login.');
+        setVerificationStatus("Your email already verified!");
+        setallowLoginStatus("You can now login");
       } else {
         console.error(error);
       }

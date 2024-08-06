@@ -1,6 +1,5 @@
-// ShareLink.js
 import React, { useState } from "react";
-import PopUp from "./ShareLinkPopUp";
+import ShareLinkPopup from "./ShareLinkPopup";
 import share from "../images/share.png";
 
 function ShareLink({ video }) {
@@ -19,7 +18,7 @@ function ShareLink({ video }) {
       <a onClick={handleShareClick}>
         <img className="share" src={share} alt="share" /> Share
       </a>
-      <PopUp
+      <ShareLinkPopup
         isOpen={isPopupOpen}
         onClose={handleClosePopup}
         linkToCopy={video.url}

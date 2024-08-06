@@ -3,7 +3,13 @@ import { Link } from "react-router-dom";
 import VideoInfo from "./VideoInfo";
 import Axios from 'axios';
 
-function VideoList({ isShowView, containerClass, videoListClass, isVideoPage, handleVideoClick }) {
+function VideoList({
+  isShowView,
+  containerClass,
+  videoListClass,
+  isVideoPage,
+  handleVideoClick
+}) {
   const videoRefs = useRef({});
   const [allVideos, setAllVideos] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
@@ -86,13 +92,13 @@ function VideoList({ isShowView, containerClass, videoListClass, isVideoPage, ha
               className="video"
               src={`${video.url}#t=,20`}
               controls={false}
+              controlsList="nodownload"
               poster={video.thumbnail_url}
               muted
               onClick={handleVideoClick}
-              preload="metadata"
               disablePictureInPicture
+              preload="metadata"
               playsInline
-              controlsList="nodownload"
               onMouseEnter={() => handleMouseEnter(video.id)}
               onMouseLeave={() => handleMouseLeave(video.id)}
               ref={(el) => {

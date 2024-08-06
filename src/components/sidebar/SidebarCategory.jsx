@@ -1,21 +1,24 @@
 import React from "react";
 import SidebarHome from "./SidebarHome";
-import SidebarSubscription from "./SidebarSubscription";
+import SidebarChannels from "./SidebarChannels";
 import SidebarPopulaVideo from "./SidebarPopularVideo";
 import SidebarMessage from "./SidebarMessage";
 import SidebarTopAuthor from "./SidebarTopAuthor";
 import SidebarSubscribersList from "./SidebarSubscribersList";
-import SidebarSettings from "./SidebarSettings";
+import UploadSidebarVideos from "./../UploadSidebarVideos";
+import UploadSidebarSettings from "./../UploadSidebarSettings";
+
 
 function SidebarCategory() {
   return (
     <div className="shortcut-links">
         <SidebarHome/>
-        <SidebarSubscription/>
+        <SidebarChannels/>
         <SidebarPopulaVideo/>
         <SidebarMessage/>
         <SidebarTopAuthor/>
-        <SidebarSettings />
+        <UploadSidebarVideos/>
+        <UploadSidebarSettings/>
 
         <hr />
         <SidebarSubscribersList/>

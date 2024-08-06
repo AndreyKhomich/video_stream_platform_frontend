@@ -145,6 +145,7 @@
    display: inline-flex;
    align-items: center; 
    margin-left: 15px;
+   cursor: pointer;
 }
 
 .play-video hr{
@@ -195,7 +196,7 @@
 }
 
 .publisher button.active{
-    background-color: #464343;
+    background-color: #5a5656;
     color:#fff;
     padding: 8px 30px;
     border:0;

@@ -63,7 +63,8 @@ function Comments({ video, isLoggedIn, jwtToken, userId }) {
           if (response.status === 200) {
               setIsCommenting(false);
               const newComments = response.data;
-              setComments(newComments);
+              const sortedComments = newComments.sort((a, b) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime());
+              setComments(sortedComments);
           } else {
               console.error("Unexpected response status:", response.status);
           }
@@ -149,10 +150,7 @@ function Comments({ video, isLoggedIn, jwtToken, userId }) {
   useEffect(() => {
     fetchComments().then((data) => {
       if (data) {
-        const sortedRootComments = data.sort((a, b) => {
-          return new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime();
-        });
-        setComments(sortedRootComments);
+        setComments(data);
       }
     });
   }, [video.id]);

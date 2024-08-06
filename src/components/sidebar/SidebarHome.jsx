@@ -1,7 +1,8 @@
 import React from "react";
 import home from "../../images/home.png"
 
-function SidebarHome() {
+function SidebarHome(){
+  
   return (
          <a href="/"
           ><img src={home} alt="home" />

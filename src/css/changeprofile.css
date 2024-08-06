@@ -1,0 +1,229 @@
+.change-profile-container {
+    padding-left: 17%;
+    padding-right: 15%;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    background: transparent;
+}
+
+.logged-in-container-profile-settings {
+    background: transparent;
+    padding-left: 17%;
+    padding-right: 15%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+} 
+
+.large-container-profile-settings {
+    padding-left: 7%;
+    padding-right: 15%;
+}
+
+.change-profile {
+    display: flex;
+    margin-top: 30px;
+}
+
+.user-details {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    background: transparent;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    height: 90px;
+    max-width: 100%;
+}
+
+.user-details-heading {
+    font-size: x-large;
+    font-weight: bold;
+    padding-top: 30px;
+}
+
+.user-settings-info {
+    width: 30%;
+    margin-left: 30px;
+    height: 350px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: inline;
+
+}
+
+.user-settings {
+    width: 70%;
+    border-radius: 8px;
+    max-height: 410px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: inline;
+}
+
+.user-settings-wrapper {
+    margin-bottom: 1.5rem;
+    margin-left: 15px;
+}
+
+.user-label {
+    font-weight: 500;
+    width: 100%;
+    display: inline-block;
+    margin-bottom: 0.5rem
+}
+
+.name {
+    margin-top: 20px;
+}
+
+.user-value {
+    border-bottom: 1px solid rgba(120, 130, 140, 0.13);
+    width: 99%;
+    outline: none;
+}
+
+
+.user-settings-input {
+    background-color: rgba(0, 0, 0, 0);
+    background-position: center bottom, center calc(99%);
+    background-repeat: no-repeat;
+    background-size: 0 2px, 100% 1px;
+    transition: background 0s ease-out 0s;
+    height: calc(1.5em + 0.75rem + 2px);
+    display: block;
+    width: 99%;
+    font-size: 0.875rem;
+    font-weight: 400;
+    color: #313131;
+    background-clip: padding-box;
+    appearance: none;
+    border-radius: 2px;
+    box-shadow: none;
+    border: none;
+    outline: none;
+}
+
+.button-settings-wrapper {
+    width: 100%;
+}
+
+.update-profile-button {
+    background-color: #5a5656;
+    color: #FFF;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    transition: opacity 0.2s;
+    width: 20%;
+    margin-left: 3%;
+}
+
+.change-profile-container button:hover {
+    opacity: 0.8;
+}
+
+.channel-details {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    background: transparent;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 100%;
+    height: 50px;
+    margin-top: 50px;
+}
+
+
+.channel-details-text {
+    font-size: large;
+    font-weight: bold;
+    padding-top: 15px;
+}
+
+.update-channel {
+    margin-top: 30px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    height: 365px;
+    border-radius: 8px;
+}
+
+.update-channel-textarea {
+    border: 0;
+    outline: 0;
+    width: 100%;
+    padding-top: 10px;
+    resize: none;
+    height:auto;
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: #000;
+    background: transparent;   
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+  
+.user-photo {
+    text-align: center;
+}
+  
+.user-photo img {
+    width: 170px; 
+    height: 170px; 
+    border-radius: 50%; 
+    margin-bottom: 15px; 
+}
+  
+.user-name {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+.user-email {
+    margin-top: 15px;
+    font-size: 16px; 
+    color: #333; 
+}
+
+.channel-info {
+    margin-top: 30px; 
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); 
+    height: 220px;  
+    display: grid;
+}
+
+.update-image-button {
+    background-color: #5a5656;
+    color: #FFF;
+    border: none;
+    margin-top: 15px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    transition: opacity 0.2s;
+}
+
+.user-settings-description {
+    font-family: 'poppins', san-serif;
+    color: #5a5a5a;
+    margin-top: 15px;
+    margin-left: 15px;
+    line-height: 1.5;
+  }
+
+  .channel-settings-description {
+    font-family: 'poppins', san-serif;
+    color: #5a5a5a;
+    padding-top: 15px;
+
+    line-height: 1.5;
+  }

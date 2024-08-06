@@ -54,6 +54,8 @@ function VideoLike({ video, isLoggedIn, jwtToken, userId }) {
     } catch (error) {
       if (error.response && error.response.data.detail === "Cannot create dislike. Like already exists for this video") {
         showErrorToast('You cannot dislike videdo. Please remove like first');
+      } else if (error.response && error.response.data.detail === "You can't dislike own video") {
+        showErrorToast("You can't dislike own video");
       }
       
     }

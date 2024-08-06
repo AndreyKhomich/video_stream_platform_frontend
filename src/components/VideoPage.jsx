@@ -9,15 +9,27 @@ import VideoList from "./VideoList";
 import "../css/videopage.css";
 import axios from "axios";
 
-function VideoPage({ isLoggedIn, jwtToken, isSidebarHidden, isContainerLarge, toggleSidebar, toggleContainerSize, userId }) {
+function VideoPage({ 
+  isLoggedIn,
+  setIsLoggedIn, 
+  jwtToken, 
+  isSidebarHidden, 
+  isContainerLarge, 
+  toggleSidebar, 
+  toggleContainerSize, 
+  userId, 
+  user,
+}) {
   const { video_id } = useParams();
   const [video, setVideo] = useState(null);
+  const [isVideoPlayed, setIsVideoPlayed] = useState(false);
+
 
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchVideo = async () => {
       try {
         const response = await axios.get(
-          `http://127.0.0.1:8010/video/${video_id}`
+          `http://localhost:8010/video/${video_id}`
         );
         const data = response.data;
         setVideo(data);
@@ -26,36 +38,39 @@ function VideoPage({ isLoggedIn, jwtToken, isSidebarHidden, isContainerLarge, to
       }
     };
 
-    fetchData();
+    fetchVideo();
   }, [video_id]);
 
 
   const increaseViewCount = async () => {
-    try {
-      await axios.post(`http://127.0.0.1:8010/video/${video_id}`, 
-      {
-        user_id: userId
-      }, 
-      {
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${jwtToken}`,
-        },
-      });
-    } catch (error) {
-      console.error("Failed to increase view count:", error);
+    if (!isVideoPlayed) {
+      try {
+        await axios.post(
+          `http://localhost:8010/video/${video_id}`,
+          {
+            user_id: userId
+          },
+          {
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${jwtToken}`,
+            },
+          }
+        );
+        setIsVideoPlayed(true);
+      } catch (error) {
+        console.error("Failed to increase view count:", error);
+      }
     }
   };
 
   const handleVideoClick = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
-
-    increaseViewCount();
   };
 
   return (
     <div className="play-video-page">
-      <Navbar isLoggedIn={isLoggedIn} toggleSidebar={toggleSidebar} toggleContainerSize={toggleContainerSize} />
+      <Navbar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} toggleSidebar={toggleSidebar} toggleContainerSize={toggleContainerSize} userId={userId} user={user} />
       {isLoggedIn && <Sidebar isSidebarHidden={isSidebarHidden}/>}
       <div className={`play-container ${isContainerLarge ? 'large-container' : ''} container ${isLoggedIn ? 'logged-in-container-video-page' : ''} `}>
         <div className="row">
@@ -64,10 +79,14 @@ function VideoPage({ isLoggedIn, jwtToken, isSidebarHidden, isContainerLarge, to
               <video
                 className="video"
                 src={video.url}
-                controls={true} 
+                controls={true}
                 poster={video.thumbnail_url}
                 preload="none"
+                muted={false}
+                // enablePictureInPicture
+                playsInline
                 onPlay={increaseViewCount}
+                controlsList="nodownload"
               ></video>
             )}
 

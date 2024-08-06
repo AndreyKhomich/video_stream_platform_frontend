@@ -1,0 +1,275 @@
+.user-page-container {
+    background: transparent;
+    padding-left: 17%;
+    padding-right: 2%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.logged-in-container-user-page {
+    background: transparent;
+    padding-left: 17%;
+    padding-right: 15%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+} 
+
+.large-container-user-page {
+    padding-left: 7%;
+    padding-right: 15%;
+}
+
+
+.profile {
+    background: transparent;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    margin-top: 30px;
+    align-items: flex-start;
+    position: relative;
+}
+
+.user-profile-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    flex: 0 0 30%;
+    line-height: 1.5;
+    color: #212529; 
+}
+
+.user-info-photo {
+
+    width: 200px;
+    height: 200px;
+    margin-top: -140px;
+    border-radius: 100px;
+    border: 4px solid #fff;     
+}
+
+.active-status {
+    width: 20px;
+    height: 20px;
+    border-radius: 20px;
+    position: relative;
+    bottom: 40px;
+    right: calc(100% - 350px);
+    background-color: #FFC107;
+    border: 3px solid #fff;
+  }
+
+.user-info-name {
+  margin-top: 20px;
+  font-family: 'poppins', san-serif;
+  font-weight: 600;
+  font-size: 18pt;
+  max-width: 420px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.user-info-email { 
+    margin-top: -5px;
+    margin-bottom: 5px;
+    font-family: 'poppins', san-serif;
+    font-size: 14pt;
+    color: #333;
+}
+
+.channel-info-name { 
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-family: 'poppins', san-serif;
+    font-size: 12pt;
+    color: #333;
+    text-align: center;
+}
+
+.user-stats {
+    margin-top: 25px;
+    text-align: center;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(120, 130, 140, 0.13);
+    font-family: 'poppins', san-serif;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+.user-subscriptions {
+    margin-top: 25px;
+    text-align: center;
+    font-family: 'poppins', san-serif;
+    padding-right: 50px;
+}
+
+.number-stat {
+    padding: 0px;
+    font-size: 14pt;
+    font-weight: bold;
+    font-family: 'poppins', san-serif;
+    color: #aaa;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.user-subscribers {
+    margin-top: 25px;
+}
+
+.user-uploaded-video {
+    margin-top: 25px;
+    padding-left: 50px;
+}
+
+.desc-stat {
+    margin-top: -15px;
+    font-size: 10pt;
+    color: #333;
+}
+
+.channel-description {
+    background: transparent;
+    text-align: center;
+    margin: 25px 40px;
+    color: #333;
+    font-size: 11pt;
+    font-family: 'poppins', san-serif;
+    padding-bottom: 25px;
+    border-bottom: 1px solid #ededed;
+    font-weight: 400;
+    line-height: 1.5;
+    flex-grow: 1;
+    word-wrap: break-word;
+}
+
+.social {
+    margin: 5px 0 12px 0;
+    text-align: center;
+    display: inline-block;
+    font-size: 20pt;
+}
+
+.video-list-container {
+    padding: 0 25px 0 25px;
+    flex: 0 0 70%;
+    max-width: 70%;
+}
+
+.categories {
+    display: inline-flex;
+    list-style: none;
+    padding-left: 50px;
+}
+
+.categories li {
+    color: #999;
+    border-bottom: 2px solid #999;
+    margin: 40px 30px 0 10px;
+    cursor: pointer;
+    font-size: 13pt;
+    text-transform: uppercase;
+    font-family: 'poppins', san-serif;
+    font-weight: 500;
+    color: #333;
+}
+
+.profile-info-buttons {
+    position: absolute;
+    right: 7%;
+    top: 5%
+}
+
+.profile-info-buttons button{
+    background-color: #a1a1a1;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-right: 20px; 
+}
+
+.profile-info-buttons button.active{
+    background-color: #5a5656;
+    color:#fff;
+    padding: 10px 20px;
+    border:none;
+    outline:0;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-right: 20px;
+    opacity: 1;
+}
+
+.profile-info-buttons button:hover {
+    opacity: 0.8; 
+}
+
+.profile-info-buttons img {
+    display: inline-block; 
+    vertical-align: middle;
+    margin-right: 10px;
+}
+
+
+.subscription-button:hover {
+    opacity: 0.8; 
+}
+
+.gallery {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-left: 40px;
+    position: relative;
+    width: 100%;
+    min-height: 1px;
+    background: transparent;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.gallery a {
+    flex: 0 0 30%;
+    max-width: 30%;
+    margin-bottom: 30px;
+    position: relative;
+    width: 100%;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.gallery video {
+    box-shadow: 0 3px 6px rgba(0,0,0,0.10), 0 3px 6px rgba(0,0,0,0.10);
+    width: auto;
+    height: auto;
+    cursor: pointer;
+    max-width: 100%;
+    vertical-align: middle;
+    border-style: none;
+    border-radius: 8px;
+  }
+
+.profile-vid-title {
+    margin-top: 10px;
+    color: #000;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.profile-vid-views {
+    color: #5a5a5a;
+    font-size: 16px;
+}
